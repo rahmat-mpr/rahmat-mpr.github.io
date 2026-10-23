@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Rahmat Maulana Putra Rianto, Unity Game Programmer & PIC QA.">
+<title>Rahmat Maulana Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: left-aligned single column, featured NSR case study, then a work grid with credits-style role lines in mono */
+:root {
+  --bg: #f2f3f5;
+  --surface: #ffffff;
+  --fg: #171a21;
+  --muted: #5b6170;
+  --line: #d9dce3;
+  --accent: #c0186a;
+  --accent-soft: #fbe3ef;
+  --font-display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12141a; --surface: #1b1e26; --fg: #eceef3; --muted: #9aa1b2; --line: #2c303b;
+    --accent: #ff5ca6; --accent-soft: #3a1a2b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12141a; --surface: #1b1e26; --fg: #eceef3; --muted: #9aa1b2; --line: #2c303b;
+  --accent: #ff5ca6; --accent-soft: #3a1a2b; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 48px 64px; display: grid; gap: 72px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.2rem; }
+p { margin: 0; }
+.label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.section-head { display: grid; gap: 6px; margin-bottom: 24px; }
+
+/* Header */
+header { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+header img { width: 132px; height: 132px; object-fit: cover; border-radius: 50%; border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line); }
+header h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+header .role { font-family: var(--font-display); font-size: 1.25rem; color: var(--accent); font-weight: 600; }
+.intro { max-width: 62ch; color: var(--muted); margin-top: 10px; }
+.contact { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 0.85rem; }
+.contact span { user-select: all; }
+
+/* Featured NSR */
+.feature { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: grid; grid-template-columns: 1.45fr 1fr; }
+.gallery { display: grid; gap: 8px; padding: 16px; background: var(--fg); align-content: start; }
+.gallery .main { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; display: block; }
+.thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.thumbs button { padding: 0; border: 2px solid transparent; border-radius: 6px; overflow: hidden; cursor: pointer; background: none; opacity: 0.65; transition: opacity .15s; }
+.thumbs button[aria-pressed="true"], .thumbs button:hover { opacity: 1; border-color: var(--accent); }
+.thumbs img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.feature-body { padding: 28px; display: grid; gap: 18px; align-content: start; min-width: 0; }
+.feature-title { display: flex; gap: 14px; align-items: center; }
+.feature-title img { width: 56px; height: 56px; border-radius: 12px; }
+.feature h2 { font-size: 1.6rem; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.stats div { background: var(--surface); padding: 10px 12px; display: grid; gap: 2px; }
+.stats b { font-family: var(--font-display); font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+.stats span { font-size: 0.78rem; color: var(--muted); line-height: 1.3; }
+.duties { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.duties li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; font-size: 0.95rem; }
+.duties li > span:first-child { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); padding-top: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; text-decoration: none; border: 1px solid var(--accent); }
+.btn.primary { background: var(--accent); color: var(--surface); }
+
+/* Work grid */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.card .shot { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; display: block; background: var(--accent-soft); }
+.card .shot.contain { object-fit: contain; }
+.grid.art { grid-template-columns: repeat(2, 1fr); max-width: 760px; }
+.card-body { padding: 18px; display: grid; gap: 10px; align-content: start; }
+.credit { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.credit b { color: var(--accent); font-weight: 500; }
+.card p { font-size: 0.92rem; }
+.card .more { font-size: 0.88rem; font-weight: 600; margin-top: 2px; display: flex; gap: 14px; flex-wrap: wrap; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font-family: var(--font-mono); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; background: var(--accent-soft); color: var(--fg); }
+
+/* More list */
+.list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; margin: 0; padding: 0; list-style: none; }
+.list li { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.93rem; min-width: 0; }
+.list li span:last-child { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); text-align: right; }
+
+/* Experience + about */
+.two { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; }
+.timeline { margin: 0; padding: 0; list-style: none; display: grid; }
+.timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.timeline .when { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+.timeline b { font-weight: 600; }
+.timeline small { display: block; color: var(--muted); font-size: 0.85rem; }
+.facts { display: grid; gap: 28px; align-content: start; }
+.facts h3 { margin-bottom: 8px; }
+.facts p { color: var(--muted); font-size: 0.95rem; }
+footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); padding-top: 20px; }
+
+@media (max-width: 900px) {
+  .feature, .two { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .wrap { gap: 56px; padding-block: 28px 48px; }
+  header { grid-template-columns: 1fr; gap: 16px; }
+  header img { width: 96px; height: 96px; }
+  .grid, .grid.art, .list { grid-template-columns: 1fr; }
+  .thumbs { grid-template-columns: repeat(3, 1fr); }
+  .duties li, .timeline li { grid-template-columns: 1fr; gap: 2px; }
+  .feature-body { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <img src="img/image10.jpg" alt="Portrait of Rahmat Maulana">
+  <div>
+    <div class="label">Portfolio · Surabaya, Indonesia</div>
+    <h1>Rahmat Maulana Putra Rianto</h1>
+    <div class="role">Unity Game Programmer &amp; PIC QA</div>
+    <p class="intro">Game programmer with 6+ years shipping Unity titles across mobile, WebGL, Steam, AR/VR and interactive installations. Currently at Yes2Games in Singapore (remote), where I write gameplay code and run QA for released games.</p>
+    <div class="contact">
+      <span>rahmatmpr@rocketmail.com</span>
+      <span>+62 813-2678-2054</span>
+      <a href="https://www.linkedin.com/in/rahmatmpr/">linkedin.com/in/rahmatmpr</a>
+    </div>
+  </div>
+</header>
+
+<section aria-labelledby="featured">
+  <div class="section-head">
+    <div class="label">Featured project · Yes2Games · 2025 – now</div>
+  </div>
+  <article class="feature">
+    <div class="gallery">
+      <img class="main" id="nsr-main" src="img/nsr-p6.jpg" alt="NSR gameplay: racing through a neon city at night">
+      <div class="thumbs" role="group" aria-label="NSR screenshots">
+        <button type="button" aria-pressed="true" data-src="img/nsr-p6.jpg" data-alt="NSR gameplay: racing through a neon city at night"><img src="img/nsr-p6.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/nsr-p4.jpg" data-alt="Yellow supercar boosting through a neon tunnel"><img src="img/nsr-p4.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/nsr-p7.jpg" data-alt="Car customization screen with paint and rim options"><img src="img/nsr-p7.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/nsr-p3.jpg" data-alt="Showroom with car stats and upgrades"><img src="img/nsr-p3.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/nsr-p5.jpg" data-alt="Driver walking next to a car in the open city"><img src="img/nsr-p5.jpg" alt=""></button>
+        <button type="button" aria-pressed="false" data-src="img/nsr-p2.jpg" data-alt="Blue car drifting on a city highway"><img src="img/nsr-p2.jpg" alt=""></button>
+      </div>
+    </div>
+    <div class="feature-body">
+      <div class="feature-title">
+        <img src="img/nsr-p0.jpg" alt="NSR app icon">
+        <div>
+          <h2 id="featured">NSR – Nitro Street Racing</h2>
+          <div class="credit"><span>Racing</span><span>Unity · C#</span><span>Android · WebGL</span></div>
+        </div>
+      </div>
+      <p>Night-time street racing in an open city. Players race other drivers, customize and upgrade their cars, and build a racing career. Released on Google Play and on Poki for desktop and mobile browsers.</p>
+      <div class="stats">
+        <div><b>100K+</b><span>Google Play downloads</span></div>
+        <div><b>4.3★</b><span>Google Play, 603 reviews</span></div>
+        <div><b>4.6★</b><span>Poki, 36K+ votes</span></div>
+      </div>
+      <ul class="duties">
+        <li><span>PIC QA</span><span>Own QA for the game: test plans and test cases, functional, regression and smoke testing, bug tracking and fix verification before each release.</span></li>
+        <li><span>Programming</span><span>Build gameplay features, fix bugs and optimize performance in Unity and C#.</span></li>
+        <li><span>WebGL / Poki</span><span>Prepare and optimize WebGL builds for release on Poki.</span></li>
+        <li><span>Android</span><span>Prepare Android builds and releases for Google Play.</span></li>
+      </ul>
+      <div class="links">
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.y2g.nsr.real.street.drift.car.racing.speed.driving.simulator">Google Play</a>
+        <a class="btn" href="https://poki.com/id/g/nsr-street-car-racing">Play on Poki</a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section aria-labelledby="work">
+  <div class="section-head">
+    <div class="label">Selected work</div>
+    <h2 id="work">Games and interactive projects</h2>
+  </div>
+  <div class="grid">
+
+    <article class="card">
+      <img class="shot" src="img/image2.jpg" alt="Children playing Disney Piano on an LED floor" loading="lazy">
+      <div class="card-body">
+        <h3>Disney Piano</h3>
+        <div class="credit"><b>Lead Programmer</b><span>DFactory Visual</span></div>
+        <p>Rhythm game for an LED floor and LED wall at Pakuwon Mall Surabaya, with Disney as client. Kids step on piano keys in time with notes on the wall. A Hokuyo LIDAR sensor tracks player positions in real time.</p>
+        <div class="tags"><span>LED installation</span><span>LIDAR</span></div>
+        <div class="more"><a href="https://www.instagram.com/reel/DK6XNrUTyv9/">Watch video</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image28.jpg" alt="Adelle Score Board scoreboard screen" loading="lazy">
+      <div class="card-body">
+        <h3>Adelle Score Board</h3>
+        <div class="credit"><b>Programmer</b><span>DFactory Visual</span></div>
+        <p>Touchscreen web app for Adelle Jewellery events, running on iPad Air. I built the scoreboard simulation and the touch input that triggers promotional videos from an external host.</p>
+        <div class="tags"><span>Web app</span><span>iPad</span></div>
+        <div class="more"><a href="https://interactive.dfactory.pro/">See project</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image29.jpg" alt="Magica Planta Botanica gameplay" loading="lazy">
+      <div class="card-body">
+        <h3>Magica Planta Botanica</h3>
+        <div class="credit"><b>Programmer</b><span>Shireishi Production</span></div>
+        <p>Survival deck-builder with roguelite progression and tower defense. I fixed bugs, built a tool that converts CSV data into Unity Localization format, and added the in-game language switcher.</p>
+        <div class="tags"><span>Steam</span><span>Localization</span></div>
+        <div class="more"><a href="https://store.steampowered.com/app/2336690/Magica_Planta_Botanica/">Steam page</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image12.jpg" alt="School Beat gameplay" loading="lazy">
+      <div class="card-body">
+        <h3>School Beat</h3>
+        <div class="credit"><b>Programmer</b><span>Shireishi Production</span></div>
+        <p>Beat 'em up roguelite. Built on TopDown Engine: I prototyped NPC behavior, teleport between areas, character data and vending machines, and wrote custom scripts to integrate them with the plugin.</p>
+        <div class="tags"><span>Steam</span><span>TopDown Engine</span></div>
+        <div class="more"><a href="https://store.steampowered.com/app/3244720/School_Beat/">Steam page</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image79.jpg" alt="Unrivaled Heroes key art" loading="lazy">
+      <div class="card-body">
+        <h3>Unrivaled Heroes</h3>
+        <div class="credit"><b>Programmer</b><span>GingerSun Games</span></div>
+        <p>2.5D side-scrolling beat 'em up set in Nusantara folklore. I built the top-down gameplay, migrated the project from Unreal to Unity, and moved gameplay from 2D to 3D with a 2.5D look.</p>
+        <div class="tags"><span>Unreal → Unity</span><span>2.5D</span></div>
+        <div class="more"><a href="https://bit.ly/3sieKBm">Download</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot contain" src="img/image31.jpg" alt="HaremKing match-3 gameplay" loading="lazy">
+      <div class="card-body">
+        <h3>HaremKing – Kode Keras Cowok 3</h3>
+        <div class="credit"><b>Solo Programmer</b><span>Digital Artha</span></div>
+        <p>Visual novel with match-3. I built a Tinder-like matching system, a chat system that reads story scripts from text files with simple commands for writers, plus dress-up and gacha wheel modes.</p>
+        <div class="tags"><span>Mobile</span><span>Lua</span><span>Narrative tools</span></div>
+        <div class="more"><a href="https://bit.ly/44rRIFz">Download</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image54.jpg" alt="G:Project title screen" loading="lazy">
+      <div class="card-body">
+        <h3>G:Project and G:Escape</h3>
+        <div class="credit"><b>Main Programmer · Game Designer</b><span>Strategy Max</span></div>
+        <p>Space arcade shooter and its survival sequel. I designed both games and built the game manager connecting gameplay, achievements, shop and sound across scenes.</p>
+        <div class="tags"><span>Mobile</span><span>Game design</span></div>
+        <div class="more"><a href="https://bit.ly/G_Project1">G:Project</a><a href="https://bit.ly/G_Escape">G:Escape</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image61.jpg" alt="Worker Brawler title screen" loading="lazy">
+      <div class="card-body">
+        <h3>Worker Brawler</h3>
+        <div class="credit"><b>Lead Programmer · 2D Animator</b><span>Game jam</span></div>
+        <p>Online multiplayer brawler made for the Indigo Game Startup Incubation Game Jam 2021. I animated the characters and built online multiplayer with Photon.</p>
+        <div class="tags"><span>Photon</span><span>Multiplayer</span></div>
+        <div class="more"><a href="https://ategonstd.itch.io/worker-brawler">itch.io</a><a href="https://bit.ly/2QBe9be">Animations</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image18.jpg" alt="AR Magazine scene over a comic page" loading="lazy">
+      <div class="card-body">
+        <h3>AR Magazine – Klikuark</h3>
+        <div class="credit"><b>Programmer</b><span>TicTech Studio × PT Kuark International</span></div>
+        <p>AR app that brings comic stories on the page to life with animated explanations. I built the AR scenarios, marker setup and scene flow to the client's requests.</p>
+        <div class="tags"><span>AR</span><span>Education</span></div>
+        <div class="more"><a href="https://bit.ly/Klikuark">Download</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image24.jpg" alt="Solar panel VR training scene" loading="lazy">
+      <div class="card-body">
+        <h3>GIZ Solar Panel VR</h3>
+        <div class="credit"><b>Programmer</b><span>TicTech Studio</span></div>
+        <p>VR training for photovoltaic troubleshooting, used by employees. I built the scenarios, scene setup and training flow. The build is private under the client agreement.</p>
+        <div class="tags"><span>VR</span><span>Training</span></div>
+        <div class="more"><a href="http://bit.ly/37xRt0L">Preview</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="img/image36.jpg" alt="Petro 360 Tour room view with map pins" loading="lazy">
+      <div class="card-body">
+        <h3>Petro 360 Tour</h3>
+        <div class="credit"><b>Programmer</b><span>TicTech Studio × Petrokimia</span></div>
+        <p>360° plant tour linked to a map. I integrated Mapbox into Unity, parsed API data, and built login, room search, history and 360° views tied to map pins. The build is private under the client agreement.</p>
+        <div class="tags"><span>Mapbox</span><span>REST API</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot contain" src="img/image74.jpg" alt="Distance gameplay" loading="lazy">
+      <div class="card-body">
+        <h3>Distance</h3>
+        <div class="credit"><b>Main Programmer · 3D Animator</b><span>PENS final project</span></div>
+        <p>Final project for the game production workshop at PENS. I handled everything except the art: programming, gameplay, game design, balancing and 3D character animation.</p>
+        <div class="tags"><span>3D animation</span><span>Game design</span></div>
+        <div class="more"><a href="https://rahadianrayhan.itch.io/distance">itch.io</a></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section aria-labelledby="art">
+  <div class="section-head">
+    <div class="label">Animation · Spine 2D</div>
+    <h2 id="art">Character animation</h2>
+  </div>
+  <div class="grid art">
+    <article class="card">
+      <img class="shot contain" src="img/image70.jpg" alt="Chibi customer character from Chef Story" loading="lazy">
+      <div class="card-body">
+        <h3>Chef Story: Cooking Game</h3>
+        <div class="credit"><b>2D Animator</b><span>Freelance</span></div>
+        <p>Animated customer girls, chibi customers and a chibi motorbike-taxi driver in Spine 2D.</p>
+        <div class="more"><a href="http://bit.ly/3Vki87p">More previews</a></div>
+      </div>
+    </article>
+    <article class="card">
+      <img class="shot contain" src="img/image76.jpg" alt="Character from Virgo and the Sparkling" loading="lazy">
+      <div class="card-body">
+        <h3>Virgo and the Sparkling</h3>
+        <div class="credit"><b>2D Animator</b><span>Freelance</span></div>
+        <p>Idle and talking animations for the characters Sarip, Sasmi and Ren in Spine 2D.</p>
+        <div class="more"><a href="http://bit.ly/3PO57C2">More previews</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="more">
+  <div class="section-head">
+    <div class="label">Archive</div>
+    <h2 id="more">More projects</h2>
+  </div>
+  <ul class="list">
+    <li><span><a href="http://bit.ly/3dzbs30">Sofi and the Red Balloon</a>, <a href="http://bit.ly/3btWtVE">Joy and the Pitcher</a>, <a href="http://bit.ly/3pCmzL1">The Goose and the Golden Eggs</a>: visual novels by Mojiken Studio, scene flow and tweening</span><span>Pixelesthe</span></li>
+    <li><span><a href="http://bit.ly/3qCSQ67">Yumi</a>: educational alphabet and drawing game, all game code and 2D animation</span><span>Pixelesthe</span></li>
+    <li><span><a href="https://bit.ly/AR_NameCard">AR Name Card</a>: marker AR that shows the company mascot</span><span>TicTech</span></li>
+    <li><span><a href="http://bit.ly/2NJUJzi">SENALAPAN</a>: markerless AR machine operating instructions</span><span>TicTech</span></li>
+    <li><span>Brodo Shoes: AR Instagram filter with Spark AR (<a href="http://drive.google.com/file/d/10hHfNWR1Uj--c_Ue5Ds3hv4k7kh9tL8V/view">preview</a>)</span><span>TicTech</span></li>
+    <li><span><a href="https://play.google.com/store/apps/details?id=com.VizardTales.TheLostLamb">The Lost Lamb</a>: hyper-casual gameplay development</span><span>Vizard Tales</span></li>
+    <li><span><a href="https://drive.google.com/file/d/1pr1EJ_IRzzMnwODNirqz5cZgjmsDS1N6/view">Food Tycoon Nusantara</a>: core gameplay</span><span>Mobile</span></li>
+    <li><span>AR Foundation showcases: <a href="https://bit.ly/3fDQ7EW">3D House</a>, <a href="https://bit.ly/3f8WVM1">COVID-19 Education</a>, <a href="https://bit.ly/3bIQEEA">Lobster Pond</a>, code and 3D assets</span><span>PT Bersama Kreatif</span></li>
+  </ul>
+</section>
+
+<section class="two" aria-label="Experience and background">
+  <div>
+    <div class="section-head">
+      <div class="label">Experience</div>
+      <h2>Where I've worked</h2>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">Jun 2025 – now</span><span><b>Yes2Games</b><small>Unity Game Programmer &amp; PIC QA · Remote, Singapore</small></span></li>
+      <li><span class="when">Apr – Jun 2025</span><span><b>DFactory Visual</b><small>Unity Game Programmer · Surabaya</small></span></li>
+      <li><span class="when">Oct 2023 – Jan 2025</span><span><b>Shireishi Production</b><small>Unity Programmer · Remote</small></span></li>
+      <li><span class="when">Sep 2023 – Aug 2024</span><span><b>SMA 1 Puri Mojokerto</b><small>Game Developer Trainer</small></span></li>
+      <li><span class="when">Aug 2023 – Jul 2024</span><span><b>Ardilab</b><small>Freelance 3D Animator · Remote</small></span></li>
+      <li><span class="when">Dec 2022 – Sep 2023</span><span><b>GingerSun Games</b><small>Part-time Unity Programmer · Sidoarjo</small></span></li>
+      <li><span class="when">Jan – Aug 2022</span><span><b>Digital Artha</b><small>Game Developer · Remote</small></span></li>
+      <li><span class="when">Jul – Oct 2021</span><span><b>Game5Mobile</b><small>Game Programmer · Remote</small></span></li>
+      <li><span class="when">Sep 2020 – Apr 2021</span><span><b>Strategy Max</b><small>Game Developer · Surabaya</small></span></li>
+      <li><span class="when">Jan – Aug 2020</span><span><b>TicTech Studio</b><small>Game Programmer, AR/VR · Surabaya</small></span></li>
+      <li><span class="when">Jan 2017 – Aug 2019</span><span><b>Pixelesthe Studio</b><small>Programmer</small></span></li>
+    </ul>
+  </div>
+  <div class="facts">
+    <div>
+      <h3>Skills</h3>
+      <p>C#, Python, Lua · Unity 2D/3D, Unreal · Git · AR Foundation, VR, Photon · Hokuyo LIDAR, Orbbec, Kinect v2 · Spine 2D, Blender, Photoshop</p>
+    </div>
+    <div>
+      <h3>QA</h3>
+      <p>Test planning, test case design, functional, regression and smoke testing, bug tracking, release verification</p>
+    </div>
+    <div>
+      <h3>Education</h3>
+      <p>Bachelor of Applied Science in Game Technology, Politeknik Elektronika Negeri Surabaya (2016 – 2023)</p>
+    </div>
+    <div>
+      <h3>Achievement</h3>
+      <p>Grand Finalist, Gameseed 2023</p>
+    </div>
+    <div>
+      <h3>Campus</h3>
+      <p>Chief Lab Assistant, Game Technology (2018) · Sponsorship Division, Gubufes</p>
+    </div>
+  </div>
+</section>
+
+<footer>Rahmat Maulana Putra Rianto · Unity Game Programmer &amp; PIC QA · Surabaya, Indonesia</footer>
+
+</div>
+
+<script>
+const main = document.getElementById('nsr-main');
+document.querySelectorAll('.thumbs button').forEach(b => b.addEventListener('click', () => {
+  main.src = b.dataset.src; main.alt = b.dataset.alt;
+  document.querySelectorAll('.thumbs button').forEach(x => x.setAttribute('aria-pressed', x === b));
+}));
+</script>
+</body>
+</html>
