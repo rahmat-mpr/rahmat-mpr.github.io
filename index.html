@@ -96,6 +96,16 @@ header .role { font-family: var(--font-display); font-size: 1.25rem; color: var(
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { font-family: var(--font-mono); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; background: var(--accent-soft); color: var(--fg); }
 
+/* Drive GIF / video previews and the Instagram embed, as in MatDesu City */
+.preview { background: #000; }
+.preview iframe { display: block; width: 100%; aspect-ratio: 1 / 1; border: 0; }
+.pv-bar { display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: var(--fg); color: var(--bg); }
+.pv-cap { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: 0.75rem; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pv-bar button { width: 32px; height: 32px; flex: none; border: 0; border-radius: 50%; background: var(--surface); color: var(--fg); font-size: 1.2rem; line-height: 1; cursor: pointer; }
+.pv-bar button:hover { background: var(--accent-soft); }
+.card.tall { grid-row: span 2; } /* the Instagram post is about two cards tall */
+iframe.ig { display: block; width: 100%; height: 640px; border: 0; background: #fff; }
+
 /* More list */
 .list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; margin: 0; padding: 0; list-style: none; }
 .list li { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.93rem; min-width: 0; }
@@ -146,7 +156,7 @@ img { max-width: 100%; }
     <div class="contact">
       <span>rahmatmpr@rocketmail.com</span>
       <span>+62 813-2678-2054</span>
-      <a href="https://www.linkedin.com/in/rahmatmpr/">linkedin.com/in/rahmatmpr</a>
+      <a href="https://www.linkedin.com/in/rahmatmpr/" target="_blank" rel="noopener">linkedin.com/in/rahmatmpr</a>
     </div>
   </div>
 </header>
@@ -175,7 +185,7 @@ img { max-width: 100%; }
           <div class="credit"><span>Racing</span><span>Unity · C#</span><span>Android · WebGL</span></div>
         </div>
       </div>
-      <p>Night-time street racing in an open city. Players race other drivers, customize and upgrade their cars, and build a racing career. Released on Google Play and on Poki for desktop and mobile browsers.</p>
+      <p>Night-time street racing in an open city. Players race other drivers, customize and upgrade their cars, and build a racing career. Released on Google Play, and on Poki and Yandex Games for desktop and mobile browsers.</p>
       <div class="stats">
         <div><b>100K+</b><span>Google Play downloads</span></div>
         <div><b>4.3★</b><span>Google Play, 603 reviews</span></div>
@@ -188,8 +198,9 @@ img { max-width: 100%; }
         <li><span>Android</span><span>Prepare Android builds and releases for Google Play.</span></li>
       </ul>
       <div class="links">
-        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.y2g.nsr.real.street.drift.car.racing.speed.driving.simulator">Google Play</a>
-        <a class="btn" href="https://poki.com/id/g/nsr-street-car-racing">Play on Poki</a>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.y2g.nsr.real.street.drift.car.racing.speed.driving.simulator" target="_blank" rel="noopener">Google Play</a>
+        <a class="btn" href="https://poki.com/id/g/nsr-street-car-racing" target="_blank" rel="noopener">Play on Poki</a>
+        <a class="btn" href="https://yandex.com/games/app/nsr-street-car-racing-449371" target="_blank" rel="noopener">Play on Yandex Games</a>
       </div>
     </div>
   </article>
@@ -202,25 +213,44 @@ img { max-width: 100%; }
   </div>
   <div class="grid">
 
-    <article class="card">
-      <img class="shot" src="img/image2.jpg" alt="Children playing Disney Piano on an LED floor" loading="lazy">
+    <article class="card tall">
+      <iframe class="ig" src="https://www.instagram.com/p/DLKTauBz58l/embed/?cr=1&amp;v=14" title="Disney Piano video" scrolling="no" loading="lazy" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
       <div class="card-body">
         <h3>Disney Piano</h3>
         <div class="credit"><b>Lead Programmer</b><span>DFactory Visual</span></div>
         <p>Rhythm game for an LED floor and LED wall at Pakuwon Mall Surabaya, with Disney as client. Kids step on piano keys in time with notes on the wall. A Hokuyo LIDAR sensor tracks player positions in real time.</p>
         <div class="tags"><span>LED installation</span><span>LIDAR</span></div>
-        <div class="more"><a href="https://www.instagram.com/reel/DK6XNrUTyv9/">Watch video</a></div>
+        <div class="more"><a href="https://www.instagram.com/p/DLKTauBz58l/" target="_blank" rel="noopener">Watch on Instagram</a></div>
       </div>
     </article>
 
     <article class="card">
-      <img class="shot" src="img/image28.jpg" alt="Adelle Score Board scoreboard screen" loading="lazy">
+      <div class="preview" data-previews='[["Adelle Score Board video","1xHCfLA5umrYrwHCl2dQEYUYkhBRJhtw8"]]'></div>
       <div class="card-body">
         <h3>Adelle Score Board</h3>
         <div class="credit"><b>Programmer</b><span>DFactory Visual</span></div>
         <p>Touchscreen web app for Adelle Jewellery events, running on iPad Air. I built the scoreboard simulation and the touch input that triggers promotional videos from an external host.</p>
         <div class="tags"><span>Web app</span><span>iPad</span></div>
-        <div class="more"><a href="https://interactive.dfactory.pro/">See project</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="preview" data-previews='[["Product Display demo","1T3pnvsFD44aWfBhbAyiBnBL5Ioo0JUDe"]]'></div>
+      <div class="card-body">
+        <h3>Product Display</h3>
+        <div class="credit"><b>Programmer</b><span>DFactory Visual</span></div>
+        <p>Interactive 3D product showcase on a large LED screen, built to show products to customers. Visitors rotate and inspect the product in real time, switch its color, open the cap to show what is inside, or let Auto mode spin it as an attract loop between visitors.</p>
+        <div class="tags"><span>3D viewer</span><span>LED screen</span><span>Retail</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="preview" data-previews='[["LED Visual Animation","1Z6Opjhupzu0LV2q8jYMaJ80j7t6KI8_p"]]'></div>
+      <div class="card-body">
+        <h3>LED Visual Animation</h3>
+        <div class="credit"><b>Programmer</b><span>DFactory Visual</span></div>
+        <p>Animated visual content built in Unity for large LED screens at events and stage shows. Runs in real time at the LED wall resolution, so scenes can loop, switch and sync with the show instead of playing as fixed video files.</p>
+        <div class="tags"><span>LED installation</span><span>Motion graphics</span></div>
       </div>
     </article>
 
@@ -231,7 +261,7 @@ img { max-width: 100%; }
         <div class="credit"><b>Programmer</b><span>Shireishi Production</span></div>
         <p>Survival deck-builder with roguelite progression and tower defense. I fixed bugs, built a tool that converts CSV data into Unity Localization format, and added the in-game language switcher.</p>
         <div class="tags"><span>Steam</span><span>Localization</span></div>
-        <div class="more"><a href="https://store.steampowered.com/app/2336690/Magica_Planta_Botanica/">Steam page</a></div>
+        <div class="more"><a href="https://store.steampowered.com/app/2336690/Magica_Planta_Botanica/" target="_blank" rel="noopener">Steam page</a></div>
       </div>
     </article>
 
@@ -242,7 +272,7 @@ img { max-width: 100%; }
         <div class="credit"><b>Programmer</b><span>Shireishi Production</span></div>
         <p>Beat 'em up roguelite. Built on TopDown Engine: I prototyped NPC behavior, teleport between areas, character data and vending machines, and wrote custom scripts to integrate them with the plugin.</p>
         <div class="tags"><span>Steam</span><span>TopDown Engine</span></div>
-        <div class="more"><a href="https://store.steampowered.com/app/3244720/School_Beat/">Steam page</a></div>
+        <div class="more"><a href="https://store.steampowered.com/app/3244720/School_Beat/" target="_blank" rel="noopener">Steam page</a></div>
       </div>
     </article>
 
@@ -252,8 +282,8 @@ img { max-width: 100%; }
         <h3>Unrivaled Heroes</h3>
         <div class="credit"><b>Programmer</b><span>GingerSun Games</span></div>
         <p>2.5D side-scrolling beat 'em up set in Nusantara folklore. I built the top-down gameplay, migrated the project from Unreal to Unity, and moved gameplay from 2D to 3D with a 2.5D look.</p>
-        <div class="tags"><span>Unreal → Unity</span><span>2.5D</span></div>
-        <div class="more"><a href="https://bit.ly/3sieKBm">Download</a></div>
+        <div class="tags"><span>Steam</span><span>Unreal → Unity</span><span>2.5D</span></div>
+        <div class="more"><a href="https://store.steampowered.com/app/2690830/Unrivaled_Heroes_25D_Brawler/" target="_blank" rel="noopener">Steam page</a></div>
       </div>
     </article>
 
@@ -264,7 +294,7 @@ img { max-width: 100%; }
         <div class="credit"><b>Solo Programmer</b><span>Digital Artha</span></div>
         <p>Visual novel with match-3. I built a Tinder-like matching system, a chat system that reads story scripts from text files with simple commands for writers, plus dress-up and gacha wheel modes.</p>
         <div class="tags"><span>Mobile</span><span>Lua</span><span>Narrative tools</span></div>
-        <div class="more"><a href="https://bit.ly/44rRIFz">Download</a></div>
+        <div class="more"><a href="https://play.google.com/store/apps/details?id=haremking.id.co.digitalart" target="_blank" rel="noopener">Download</a></div>
       </div>
     </article>
 
@@ -275,7 +305,7 @@ img { max-width: 100%; }
         <div class="credit"><b>Main Programmer · Game Designer</b><span>Strategy Max</span></div>
         <p>Space arcade shooter and its survival sequel. I designed both games and built the game manager connecting gameplay, achievements, shop and sound across scenes.</p>
         <div class="tags"><span>Mobile</span><span>Game design</span></div>
-        <div class="more"><a href="https://bit.ly/G_Project1">G:Project</a><a href="https://bit.ly/G_Escape">G:Escape</a></div>
+        <div class="more"><a href="https://play.google.com/store/apps/details?id=com.StrategyMax.GProject" target="_blank" rel="noopener">G:Project</a><a href="https://play.google.com/store/apps/details?id=com.StrategyMax.GEscape" target="_blank" rel="noopener">G:Escape</a></div>
       </div>
     </article>
 
@@ -286,7 +316,7 @@ img { max-width: 100%; }
         <div class="credit"><b>Lead Programmer · 2D Animator</b><span>Game jam</span></div>
         <p>Online multiplayer brawler made for the Indigo Game Startup Incubation Game Jam 2021. I animated the characters and built online multiplayer with Photon.</p>
         <div class="tags"><span>Photon</span><span>Multiplayer</span></div>
-        <div class="more"><a href="https://ategonstd.itch.io/worker-brawler">itch.io</a><a href="https://bit.ly/2QBe9be">Animations</a></div>
+        <div class="more"><a href="https://ategonstd.itch.io/worker-brawler" target="_blank" rel="noopener">itch.io</a><a href="https://drive.google.com/drive/folders/17RNq-TgBAH_2XTHYb_tzwKmyC6FkYrcA" target="_blank" rel="noopener">Animations</a></div>
       </div>
     </article>
 
@@ -297,18 +327,17 @@ img { max-width: 100%; }
         <div class="credit"><b>Programmer</b><span>TicTech Studio × PT Kuark International</span></div>
         <p>AR app that brings comic stories on the page to life with animated explanations. I built the AR scenarios, marker setup and scene flow to the client's requests.</p>
         <div class="tags"><span>AR</span><span>Education</span></div>
-        <div class="more"><a href="https://bit.ly/Klikuark">Download</a></div>
+        <div class="more"><a href="https://play.google.com/store/apps/details?id=com.tictech.kelar" target="_blank" rel="noopener">Download</a></div>
       </div>
     </article>
 
     <article class="card">
-      <img class="shot" src="img/image24.jpg" alt="Solar panel VR training scene" loading="lazy">
+      <div class="preview" data-previews='[["Training clip","1FQ3F8PHKJPsnKT1y2F-FVlF71QugsCd8"],["Training clip","1UG5hHOQ332RuPTKTvYLDRikb756Migbo"]]'></div>
       <div class="card-body">
         <h3>GIZ Solar Panel VR</h3>
         <div class="credit"><b>Programmer</b><span>TicTech Studio</span></div>
-        <p>VR training for photovoltaic troubleshooting, used by employees. I built the scenarios, scene setup and training flow. The build is private under the client agreement.</p>
+        <p>VR training for photovoltaic troubleshooting, used by employees. I built the scenarios, scene setup and training flow. The build is private under the client agreement; the clips show the training.</p>
         <div class="tags"><span>VR</span><span>Training</span></div>
-        <div class="more"><a href="http://bit.ly/37xRt0L">Preview</a></div>
       </div>
     </article>
 
@@ -329,7 +358,7 @@ img { max-width: 100%; }
         <div class="credit"><b>Main Programmer · 3D Animator</b><span>PENS final project</span></div>
         <p>Final project for the game production workshop at PENS. I handled everything except the art: programming, gameplay, game design, balancing and 3D character animation.</p>
         <div class="tags"><span>3D animation</span><span>Game design</span></div>
-        <div class="more"><a href="https://rahadianrayhan.itch.io/distance">itch.io</a></div>
+        <div class="more"><a href="https://rahadianrayhan.itch.io/distance" target="_blank" rel="noopener">itch.io</a></div>
       </div>
     </article>
 
@@ -343,21 +372,21 @@ img { max-width: 100%; }
   </div>
   <div class="grid art">
     <article class="card">
-      <img class="shot contain" src="img/image70.jpg" alt="Chibi customer character from Chef Story" loading="lazy">
+      <div class="preview" data-previews='[["Girl · Idle","1F7J0DUz9dUPM86-Q6kP5vyX0UL-Z2rxO"],["Girl · Walking","1lAH6VEvX4Liz2LSjtwE5-_F-DVyAPkaN"],["Chibi customer · Walk in","1sWLrzZx0YCpR4y9SQgR3tXjckmrsgD64"],["Chibi customer · Order, normal","1d_mVyZ8bgAFRNHI7YwFhtOpkT_Z41_jU"],["Chibi customer · Order, irritated","1BV462dNTCTASGxE-lBgdDFaDDyAA6FVZ"],["Chibi customer · Order complete","19GTk2W35eYtyHED1hJ6N2_9u_cpUP4EH"],["Chibi customer · Leave happy","11B7HBckAzGQKBmH4e0vys4ELAY4z2fQB"],["Chibi customer · Leave angry","1skoUSG6b_Sgy32cbCFNMqXmLCSB8Ox0n"],["Chibi customer · No service","1HzkBZJkdZJiH3rqq6Y8C8n3Ys7taE4cp"],["Motorbike-taxi driver · Idle","1QkEQx2A3bIRi6Aw4IadHO-ClG50btktz"],["Motorbike-taxi driver · Walk","10nLNS-u-XOA_YbYJZth3t_RFkKFnYZ8r"]]'></div>
       <div class="card-body">
         <h3>Chef Story: Cooking Game</h3>
-        <div class="credit"><b>2D Animator</b><span>Freelance</span></div>
+        <div class="credit"><b>2D Animator</b><span>Niji Games (freelance)</span></div>
         <p>Animated customer girls, chibi customers and a chibi motorbike-taxi driver in Spine 2D.</p>
-        <div class="more"><a href="http://bit.ly/3Vki87p">More previews</a></div>
+        <div class="more"><a href="https://play.google.com/store/apps/details?id=com.nijigames.chefstorys" target="_blank" rel="noopener">Google Play</a></div>
       </div>
     </article>
     <article class="card">
-      <img class="shot contain" src="img/image76.jpg" alt="Character from Virgo and the Sparkling" loading="lazy">
+      <div class="preview" data-previews='[["Sasmi · Idle","1iJOBPmbwwRcYBiBE09nK2MrmbUyUe3cy"],["Sasmi · Talk","1RkwHuOQod07YLNcCgC9ytUG-LswLkf-y"],["Sasmi, happy · Idle","1Mx8w3iC-57oB3MGHQ70tyu5wqC_pV3OO"],["Sasmi, happy · Talk","1_vJAJg42-2cO3peruSH6RH97llxROMNf"],["Sasmi, bashful · Idle","1l_Byx1G3SV2B80waMQ8k0G8N0vseyWAg"],["Sasmi, bashful · Talk","1u2jy2UhlxsG-1gcBPTS8lzMzxosKAh3A"],["Sasmi, surprised · Idle","1YXclVDo8GXuQUyuyyU9YJu3nxc-PrpHT"],["Sasmi, surprised · Talk","1xcw2mN4wU4OY0h__Gqy4xM80C8hzz989"],["Sasmi, recording · Idle","1E0WyeMnyE9FnF34HLo_QGufXfPxG-qp6"],["Sasmi, recording · Talk","10AHcHV1tqGnV5JpoQoAZWobnSNigCx7A"],["Ren · Idle","11yDHsE5h3VXBFw8dQ4ydBPr9V0lJqIHl"],["Ren · Talk","1cLVGIXpkuBFc8RX98qgLvM3X-Kb1C0in"],["Ren, serious · Idle","1EVhB9Gk_7GN3j0p_ceBHhJEaSWC5CoZw"],["Ren, serious · Talk","1qxa7oN9Sjm_3i61lWpm4nu1Plv6S3tl6"],["Ren, smug · Idle","1bIYO0a2C569qVDDcHwn5VLjPZUxcHq1y"],["Ren, smug · Talk","1pKhHpnVLGBdQWQU7_EvXcBG5qUJwoeh5"],["Butler · Idle","1HF23krwV0abt5F11YhHbfMneNagRO5Ak"],["Butler · Talk","1joetiByaKrhYrrhd5ndBw000m6iwcvPm"]]'></div>
       <div class="card-body">
         <h3>Virgo and the Sparkling</h3>
-        <div class="credit"><b>2D Animator</b><span>Freelance</span></div>
+        <div class="credit"><b>2D Animator</b><span>Niji Games (freelance)</span></div>
         <p>Idle and talking animations for the characters Sarip, Sasmi and Ren in Spine 2D.</p>
-        <div class="more"><a href="http://bit.ly/3PO57C2">More previews</a></div>
+        <div class="more"><a href="https://apps.qoo-app.com/en/app/19387" target="_blank" rel="noopener">QooApp</a></div>
       </div>
     </article>
   </div>
@@ -369,14 +398,13 @@ img { max-width: 100%; }
     <h2 id="more">More projects</h2>
   </div>
   <ul class="list">
-    <li><span><a href="http://bit.ly/3dzbs30">Sofi and the Red Balloon</a>, <a href="http://bit.ly/3btWtVE">Joy and the Pitcher</a>, <a href="http://bit.ly/3pCmzL1">The Goose and the Golden Eggs</a>: visual novels by Mojiken Studio, scene flow and tweening</span><span>Pixelesthe</span></li>
-    <li><span><a href="http://bit.ly/3qCSQ67">Yumi</a>: educational alphabet and drawing game, all game code and 2D animation</span><span>Pixelesthe</span></li>
-    <li><span><a href="https://bit.ly/AR_NameCard">AR Name Card</a>: marker AR that shows the company mascot</span><span>TicTech</span></li>
-    <li><span><a href="http://bit.ly/2NJUJzi">SENALAPAN</a>: markerless AR machine operating instructions</span><span>TicTech</span></li>
-    <li><span>Brodo Shoes: AR Instagram filter with Spark AR (<a href="http://drive.google.com/file/d/10hHfNWR1Uj--c_Ue5Ds3hv4k7kh9tL8V/view">preview</a>)</span><span>TicTech</span></li>
-    <li><span><a href="https://play.google.com/store/apps/details?id=com.VizardTales.TheLostLamb">The Lost Lamb</a>: hyper-casual gameplay development</span><span>Vizard Tales</span></li>
-    <li><span><a href="https://drive.google.com/file/d/1pr1EJ_IRzzMnwODNirqz5cZgjmsDS1N6/view">Food Tycoon Nusantara</a>: core gameplay</span><span>Mobile</span></li>
-    <li><span>AR Foundation showcases: <a href="https://bit.ly/3fDQ7EW">3D House</a>, <a href="https://bit.ly/3f8WVM1">COVID-19 Education</a>, <a href="https://bit.ly/3bIQEEA">Lobster Pond</a>, code and 3D assets</span><span>PT Bersama Kreatif</span></li>
+    <li><span><a href="https://drive.google.com/drive/folders/1PHWv1j77-HMVMiEq5iYDrXp8iK82XHF2" target="_blank" rel="noopener">Sofi and the Red Balloon</a>, <a href="https://drive.google.com/drive/folders/19LhT7iUlW1_n2n_3ds9SLcSeR2SNXxA0" target="_blank" rel="noopener">Joy and the Pitcher</a>, <a href="https://drive.google.com/drive/folders/1weqbOYHG26IjFZA7Docf2chRfrv2L4XA" target="_blank" rel="noopener">The Goose and the Golden Eggs</a>: visual novels by Mojiken Studio, scene flow and tweening</span><span>Pixelesthe</span></li>
+    <li><span><a href="https://drive.google.com/drive/folders/1eWet7sdqx2xENK34VOGaM3K0O2eMVAHr" target="_blank" rel="noopener">Yumi</a>: educational alphabet and drawing game, all game code and 2D animation</span><span>Pixelesthe</span></li>
+    <li><span><a href="https://drive.google.com/drive/folders/10u8H_IJ9JLVX_KQYqLqAcNqX2wbrUoI3" target="_blank" rel="noopener">AR Name Card</a>: marker AR that shows the company mascot</span><span>TicTech</span></li>
+    <li><span><a href="https://drive.google.com/drive/folders/1vVtH7C6hpSgqclDTTdas59IxbTCWHlKM" target="_blank" rel="noopener">SENALAPAN</a>: markerless AR machine operating instructions</span><span>TicTech</span></li>
+    <li><span>Brodo Shoes: AR Instagram filter with Spark AR (<a href="http://drive.google.com/file/d/10hHfNWR1Uj--c_Ue5Ds3hv4k7kh9tL8V/view" target="_blank" rel="noopener">preview</a>)</span><span>TicTech</span></li>
+    <li><span>The Lost Lamb: hyper-casual gameplay development (no longer on Google Play)</span><span>Vizard Tales</span></li>
+    <li><span>AR Foundation showcases: <a href="https://drive.google.com/file/d/1df07NaxaqPoT9WqPbV7LYa7BOV7NW8WB/view" target="_blank" rel="noopener">3D House</a>, <a href="https://drive.google.com/drive/folders/1JyAJBzUwv07JakGSj-COzNAHDKyL6Mca" target="_blank" rel="noopener">COVID-19 Education</a>, <a href="https://drive.google.com/drive/folders/1YkF6H-mgh0givsTfAe7uu6YhkzFIXxiK" target="_blank" rel="noopener">Lobster Pond</a>, code and 3D assets</span><span>PT Bersama Kreatif</span></li>
   </ul>
 </section>
 
@@ -429,6 +457,39 @@ img { max-width: 100%; }
 </div>
 
 <script>
+// Drive previews: one file at a time, ‹ › step through the list (only the shown file loads)
+document.querySelectorAll('.preview').forEach((box) => {
+  const list = JSON.parse(box.dataset.previews);
+  const frame = document.createElement('iframe');
+  frame.loading = 'lazy';
+  frame.allow = 'autoplay';
+  box.append(frame);
+  let i = 0;
+  const cap = document.createElement('span');
+  cap.className = 'pv-cap';
+  const show = (k) => {
+    i = (k + list.length) % list.length;
+    frame.src = `https://drive.google.com/file/d/${list[i][1]}/preview`;
+    frame.title = list[i][0];
+    cap.textContent = `${list[i][0]} · ${i + 1} / ${list.length}`;
+  };
+  show(0);
+  if (list.length < 2) return;
+  const nav = (d, label, text) => Object.assign(document.createElement('button'), { type: 'button', textContent: text, ariaLabel: label, onclick: () => show(i + d) });
+  const bar = document.createElement('div');
+  bar.className = 'pv-bar';
+  bar.append(nav(-1, 'Previous', '‹'), cap, nav(1, 'Next', '›'));
+  box.append(bar);
+});
+// Instagram embeds report their height (cr=1); size the iframe so the post never scrolls inside
+addEventListener('message', (e) => {
+  if (e.origin !== 'https://www.instagram.com') return;
+  let msg;
+  try { msg = JSON.parse(e.data); } catch { return; }
+  if (msg.type !== 'MEASURE' || !msg.details?.height) return;
+  for (const f of document.querySelectorAll('iframe.ig')) if (f.contentWindow === e.source) f.style.height = `${msg.details.height}px`;
+});
+
 const main = document.getElementById('nsr-main');
 document.querySelectorAll('.thumbs button').forEach(b => b.addEventListener('click', () => {
   main.src = b.dataset.src; main.alt = b.dataset.alt;
