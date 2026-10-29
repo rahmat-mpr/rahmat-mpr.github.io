@@ -103,8 +103,9 @@ header .role { font-family: var(--font-display); font-size: 1.25rem; color: var(
 .pv-cap { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: 0.75rem; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pv-bar button { width: 32px; height: 32px; flex: none; border: 0; border-radius: 50%; background: var(--surface); color: var(--fg); font-size: 1.2rem; line-height: 1; cursor: pointer; }
 .pv-bar button:hover { background: var(--accent-soft); }
-.card.tall { grid-row: span 2; } /* the Instagram post is about two cards tall */
-iframe.ig { display: block; width: 100%; height: 640px; border: 0; background: #fff; }
+/* Instagram post cropped to the same square as the Drive previews: header hidden above, caption below */
+.ig-crop { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: #000; }
+.ig-crop iframe.ig { position: absolute; left: 0; top: -54px; width: 100%; height: 900px; border: 0; background: #fff; }
 
 /* More list */
 .list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; margin: 0; padding: 0; list-style: none; }
@@ -213,8 +214,8 @@ img { max-width: 100%; }
   </div>
   <div class="grid">
 
-    <article class="card tall">
-      <iframe class="ig" src="https://www.instagram.com/p/DLKTauBz58l/embed/?cr=1&amp;v=14" title="Disney Piano video" scrolling="no" loading="lazy" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <article class="card">
+      <div class="ig-crop"><iframe class="ig" src="https://www.instagram.com/p/DLKTauBz58l/embed/?cr=1&amp;v=14" title="Disney Piano video" scrolling="no" loading="lazy" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
       <div class="card-body">
         <h3>Disney Piano</h3>
         <div class="credit"><b>Lead Programmer</b><span>DFactory Visual</span></div>
